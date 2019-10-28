@@ -5,13 +5,13 @@ In recent years, meat consumption has received a lot of attention as a result of
 
 
 # Research questions
-How has the crops/livestock primary production developed since 1960?
-Is there a connection between the development of livestock primary production and crop production?
-How are the differences in production quantities between the different continents?
-How has the development in agriculture affected emission of greenhouse gasses?
+How has the crops/livestock primary production developed since 1960?  
+Is there a connection between the development of livestock primary production and crop production?  
+How are the differences in production quantities between the different continents?  
+How has the development in agriculture affected emission of greenhouse gasses?  
 
 # Dataset
-http://www.fao.org/faostat/en/#data/QL
+http://www.fao.org/faostat/en/#data/QL  
 https://www.kaggle.com/unitednations/global-food-agriculture-statistics
 
 We have decided to compliment FAOs Global Food and Agriculture dataset with another dataset from FAO containing data on livestock primary production. This is due to the fact that the Global Food and Agriculture dataset does not contain any information regarding livestock and we want to be able to study the relationship between how crops and livestock production have developed over the last half decade. The online datasets are extremely big and comprehensive, but luckily easy to use thanks to them being well structured and easy to understand. We are able to exactly choose which data to download, but it will be a challenge to choose the most valuable and interesting data.
