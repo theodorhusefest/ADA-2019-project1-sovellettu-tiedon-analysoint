@@ -20,17 +20,19 @@ We have decided to compliment FAOs Global Food and Agriculture dataset with anot
 1 - Data Wrangling and Exploration (Deadline 4th November)
 - Decide on the most important indicators/features in the datasets and download
 - Look at the dataset and get a feel of the data (distributions etc)
-- Be as certain as possible that if we have enough and correct data to move on
+- Be as certain as possible that if we have enough and correct data to move on   
+
 2 - Data Cleaning (Deadline 11th November)
 - Remove errors, or unimportant information
-- Decide on important groupings 
+- Decide on important groupings  
+
 3. Data Analysis and Visualization (Deadline 18th November)
 - Find key statistical indicators 
-- Visualize the results
+- Visualize the results   
+
 4. Finalize notebook (Deadline 25th November)
 - Make sure that the analysis is well documented and motivated
 - Make sure that the visualization choices are optimal and easy to understand
-
 
 # Questions for TAa
 1. Is this a resonable scope of the project?
