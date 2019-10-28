@@ -26,11 +26,11 @@ We have decided to compliment FAOs Global Food and Agriculture dataset with anot
 - Remove errors, or unimportant information
 - Decide on important groupings  
 
-3. Data Analysis and Visualization (Deadline 18th November)
+3 - Data Analysis and Visualization (Deadline 18th November)
 - Find key statistical indicators 
 - Visualize the results   
 
-4. Finalize notebook (Deadline 25th November)
+4 - Finalize notebook (Deadline 25th November)
 - Make sure that the analysis is well documented and motivated
 - Make sure that the visualization choices are optimal and easy to understand
 
