@@ -24,5 +24,10 @@ def split_fao_data(df):
     
     continents = ['Africa', 'Northern America', 'South America', 'Asia', 'Oceania', 'Europe']
     continents = df[df['Area'].isin(continents)]
+    
+    # Reset index on each of the dataframes, and drop the old indexes
+    countries = countries.reset_index().drop('index', axis = 1)
+    area = area.reset_index().drop('index', axis = 1)
+    continents = continents.reset_index().drop('index', axis = 1)
 
     return countries, area, continents
