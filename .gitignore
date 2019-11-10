@@ -1,3 +1,9 @@
+# Filetypes to ignore
 **/*.csv
 **/*.icloud
 **/.DS_Store
+
+# Folders to ignore
+**/.ipynb_checkpoints
+**/__pycache__
+
