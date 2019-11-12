@@ -47,9 +47,7 @@ def plot_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_png = False):
         
 
 def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False):
-    """
-    DONT USE THIS YET
-    
+    """    
     Plots one line per Area in df. 
     X-axis default Years, while y-axis has to be passed
     
