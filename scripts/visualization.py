@@ -12,7 +12,7 @@ from bokeh.themes import Theme
 from bokeh.io import curdoc
 
     
-theme = Theme(filename = './bokeh_theme.yaml')
+theme = Theme(filename = './visual/bokeh_theme.yaml')
 curdoc().theme = theme
 
 
@@ -48,7 +48,8 @@ def plot_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_png = False):
 
 def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False):
     """    
-    Plots one line per Area in df. 
+    Produces an interactiv plot with comparison on area-level.
+    Uses Bokeh, and is Save_html is active it saves directly to website-folder.
     X-axis default Years, while y-axis has to be passed
     
     params:
@@ -56,10 +57,11 @@ def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False)
         y: value to be plotted on y-axis. Must be a column in df
         x: value on x-axis. Default years
         title: chosen title on plot.
-        save_png: saves a png of plot in plots, and filename is title
+        save_html: saves a png of plot in plots, and filename is title
     """
+    
     if save_html:
-        output_file('{}.html'.format(title))
+        output_file('./website/layouts/partials/{}.html'.format(title))
     
     colors = ['#32e6a1', '#92c64c', '#c69e15', '#e56b30', '#e63262']
     output_notebook()
@@ -76,7 +78,7 @@ def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False)
         
 
         
-def map_compare_areas(df, year, value, save_html = True, legend = 'NoLegend', filepath = 'geo/continents.json',):
+def map_compare_areas(df, year, value, save_html = True, legend = 'NoLegend', filepath = './visual/geo/continents.json',):
     """
     Produces a choropleth map where darker color means higher value.
     
@@ -96,7 +98,11 @@ def map_compare_areas(df, year, value, save_html = True, legend = 'NoLegend', fi
     borders = json.load(open(filepath))
     
     # Initialize map
-    m = folium.Map(location= (25,0), tiles='cartodbpositron' , zoom_start = 1.7, prefer_canvar=True)
+    m = folium.Map(location= (25,0), 
+                   width= '95%',
+                   height= '80%',
+                   tiles= 'cartodbpositron', 
+                   zoom_start= 1.5,)
 
     # Add borders to map
     folium.GeoJson(borders).add_to(m)
@@ -104,12 +110,12 @@ def map_compare_areas(df, year, value, save_html = True, legend = 'NoLegend', fi
     # Make choropleth map
     map_data = df[(df['Year'] == year)]
     m.choropleth(geo_data=borders, data=map_data,
-             columns=['Area', value],
-             key_on='feature.properties.CONTINENT',
-             fill_color='BuPu', fill_opacity=0.6, line_opacity=0.2,
-             legend_name='legend')
+             columns= ['Area', value],
+             key_on= 'feature.properties.CONTINENT',
+             fill_color= 'BuPu', fill_opacity=0.6, line_opacity=0.2,
+             legend_name= legend)
     
     if save_html:
-        m.save('{}.html'.format(legend))
+        m.save('./website/layouts/partials/{}.html'.format(legend))
         
     return m

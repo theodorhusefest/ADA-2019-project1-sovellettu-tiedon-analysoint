@@ -1,0 +1,20 @@
+
+body {
+    background-color: #10435e;
+    font-family: 'Open Sans';
+}
+
+.header {
+    padding: 40px;
+    text-align: center;
+    background-color: #10435e;
+    color: white;
+    font-size:  25px;
+}
+
+.plot {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    
+}
