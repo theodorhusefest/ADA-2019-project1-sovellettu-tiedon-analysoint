@@ -1,0 +1,33 @@
+
+# Bokeh theme used in all plots.
+# Nice dark blue/green: #134e6e'
+# Used, darker blue/greeen: #10435e
+
+# Green: #6fd9aa
+# Yellow: #e7ed47
+# Orange: #eb8038
+# Blue: #2eecf2
+
+attrs:
+    Figure:
+        background_fill_color: '#10435e'
+        border_fill_color: '#10435e'
+        outline_line_color: '#10435e'
+    Grid:
+        grid_line_dash: [6, 4]
+        grid_line_alpha: .3
+    Title:
+        text_font_size: "18pt"
+        text_color: "white"
+    Axis:
+        axis_label_text_font_size: "10pt"
+        axis_label_text_color: "white"
+        axis_line_color: "#49483E"
+        major_label_text_color: "white"
+        major_tick_line_color: "white"
+        minor_tick_line_color: "white"
+        minor_tick_line_color: "white"
+        
+    Legend:
+        background_fill_color: '#88a4b3'
+        label_text_color: "White"
