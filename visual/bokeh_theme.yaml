@@ -3,7 +3,12 @@
 # Nice dark blue/green: #134e6e'
 # Used, darker blue/greeen: #10435e
 
-
+# Colors
+# BlueGreen: #32e6a1 
+# Green: #92c64c
+# Yellow: #c69e15
+# Orange: #e56b30
+# Red: #e63262
 
 attrs:
     Figure:

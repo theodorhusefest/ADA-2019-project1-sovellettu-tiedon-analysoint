@@ -6,14 +6,10 @@ import seaborn as sns; sns.set(); sns.set_style('whitegrid')
 import folium
 import json
 
-from bokeh.plotting import figure, output_file, output_notebook, show
+from bokeh.plotting import figure, output_file, output_notebook, reset_output, show
 from bokeh.models import ColumnDataSource
 from bokeh.themes import Theme
 from bokeh.io import curdoc
-
-    
-theme = Theme(filename = './visual/bokeh_theme.yaml')
-curdoc().theme = theme
 
 
 
@@ -62,8 +58,14 @@ def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False)
     
     if save_html:
         output_file('./website/layouts/partials/{}.html'.format(title))
+    else: 
+        reset_output()
     
+    # Set theme and colors to use
+    theme = Theme(filename = './visual/bokeh_theme.yaml')
+    curdoc().theme = theme
     colors = ['#32e6a1', '#92c64c', '#c69e15', '#e56b30', '#e63262']
+    
     output_notebook()
     
     df_grouped = df.groupby(['Area'])
@@ -73,6 +75,7 @@ def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False)
     for (area, group), color in zip(df_grouped, colors):
         p.line(group[x], group[y], legend = area, line_color = color, line_width=3)
         
+    p.legend.orientation = "horizontal"
     show(p)
         
         
