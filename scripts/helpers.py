@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 
 
-#**************** Clean data *****************
 
 def split_fao_data(df):
     """
@@ -31,3 +30,18 @@ def split_fao_data(df):
     continents = continents.reset_index().drop('index', axis = 1)
 
     return countries, area, continents
+
+
+def explain_df(df):
+    """
+    Prints a quick summary of the dataframe
+    params:
+        df: fao-dataframe with columns [Area, Year, Item, Element, Unit]
+    """
+    
+    print('The data contain(s) the following: ') 
+    print(f'    area(s)    : {(df.Area.unique().tolist())}')
+    print(f'    years      : {(df.Year.min())} - {df.Year.max()}')
+    print(f'    item(s)    : {(df.Item.unique().tolist())}')
+    print(f'    elements(s): {(df.Element.unique().tolist())}')
+    print(f'    unit(s)    : {(df.Unit.unique().tolist())}')
