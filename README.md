@@ -37,8 +37,14 @@ We have decided to compliment FAOs Global Food and Agriculture dataset with anot
 ## Internal Milestones until Project Milestone 3 
 
 To finish our notebook until milestone 3 we will use our cleaned data to answer our research questions.  
+**VAR VÄNLIG LÄGG IN EN PLAN LIKT DEN FÖR MILESTONE2**
 
+&nbsp;
 
+## Further specifing the questions and project goals
+In this section we will more clearly define our _project questions_ and _project goals_.
+### Questions
+We will specify each question in order to provide the reader with a more specific view of the project.
 #### Question 1 - How has the crops/livestock primary production developed since 1960?
 ***
 This question will serve as an intro to the whole project and look at the big trends in the world, with focus on products more than areas. We will mainly study total development of production (without normalizing for population), as this is how the production actually has developed and how the scale has changed during the 50 years.  
@@ -49,25 +55,28 @@ We will follow these steps:
 - Find statistical indicators showing the differences now and in 1960.
 - Look for certain countries and areas that stand out.
 
-
+&nbsp;
 #### Question 2 - Is there a connection between the development of livestock primary production and crop production?
 ***
 The purpose of this question is to see if there are any trends in our data, and to answer this we will study both total and normalized data. We will also have to look at 
 
 - Are we producing more food per person?
 - Has the porportions of meat vs. crops changed in our diet?
-    
+- Can we see diffrences between each continent?
+
+&nbsp;   
 
 #### Question 3 - How are the differences in production quantities between the different continents?
 ***
 The purpose of this question is to study the difference in production at a continent-level. For example, it can be interesting to see the difference between developed continents, like Europe and North-America, and continents like Africa and Asia. 
 
-- Study if food production in general, and with a crops vs. meat analysis.
+- Study food production in general, and with a crops vs. meat analysis.
+- What can be said about the normalized production?
 - Can we say if any continents are producing more than it needs?
 - Try to find data on how much food a person needs per year. 
     - This is pretty hard because of energy/tonne
     
-    
+&nbsp;
 
 #### Question 4 - How has the development in agriculture affected emission of greenhouse gasses?
 ***
@@ -75,3 +84,10 @@ The purpose of this question is to study the difference in production at a conti
 This question is about the consequences of what we have studied in the previous questions.
 
 - Can we find evidence that higher meat consumption leads to higher emissions?
+- Is it better for the environment to eat crops rather than livestock?
+- Are there any particular meat or crop that affect the CO2 emissions more/less than the average?
+
+&nbsp;
+### Summary of goals
+***
+The goal of this project is to give the reader an understanding of the trends in agriculture development, both worldwide and on continent level. Furthermore, we will examine how our food habit has developed and affected the world-wide CO2 emissions.
