@@ -12,11 +12,11 @@ How are the differences in production quantities between the different continent
 How has the development in agriculture affected emission of greenhouse gasses?  
 
 ## Dataset
-http://www.fao.org/faostat/en/#data/QL  
-https://www.kaggle.com/unitednations/global-food-agriculture-statistics
-http://www.fao.org/faostat/en/#data/OA
-http://www.fao.org/faostat/en/#data/EM
-http://www.fao.org/faostat/en/#data/EI
+- http://www.fao.org/faostat/en/#data/QL  
+- https://www.kaggle.com/unitednations/global-food-agriculture-statistics
+- http://www.fao.org/faostat/en/#data/OA
+- http://www.fao.org/faostat/en/#data/EM
+- http://www.fao.org/faostat/en/#data/EI
 
 We have decided to compliment FAOs Global Food and Agriculture dataset with another dataset from FAO containing data on livestock primary production. This is due to the fact that the Global Food and Agriculture dataset does not contain any information regarding livestock and we want to be able to study the relationship between how crops and livestock production have developed over the last half decade. The online datasets are extremely big and comprehensive, but luckily easy to use thanks to them being well structured and easy to understand. We are able to exactly choose which data to download, but it will be a challenge to choose the most valuable and interesting data. We are also complimenting the crops and livestock production data with data on CO2 emissions from agriculture in order to answer our 4th research question. We are also using population data in order to study if the agriculture production is simply due to increasing/decreasing population or if that doesn't have anything to do with it.
 
