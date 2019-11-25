@@ -35,17 +35,20 @@ We have decided to compliment FAOs Global Food and Agriculture dataset with anot
 - Make sure that the visualization choices are optimal and easy to understand
 
 ## Internal Milestones until Project Milestone 3 
+
+In the next section we have written how we will answer all the research questions, and we will therefore not go in detail of that here.  
+This is to be considered an overall plan.
+
 1 - Answer research Questions 1 & 2 (29th November)
-- Investigate any oddities with the cleaned data
 
-2 - Answer research Questions 3 & 4. Decide report format (6th December)
-- Report format 
+2 - Answer research Questions 3 & 4. (6th December)
+- Decide on either report or data story.
 
-3 - Finish visuals and finish draft of report (13th December)
+3 - Finish visuals and make a draft of report/data story (13th December)
 
 4 - Final Deadline (20th December)
-- Report to be returned
-- A supporting notebook shall be returned as well(extending on Milestone 2)
+- Make sure the report/data is consistent, and includes all the important information.
+- Make sure the final notebook (extending on Milestone 2) is comprehensive and includes all mathematical calculations.
 - Update readme with contributions of team members (including who works on the final presentation)
 
 5 - Presentations (18th January)
