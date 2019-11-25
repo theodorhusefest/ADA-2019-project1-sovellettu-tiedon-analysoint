@@ -1,5 +1,7 @@
 # Applied Data Analysis - Project
 
+(Projects notebook for milestone 2: project_notebook.ipynb)
+
 ### Abstract
 In recent years, meat consumption has received a lot of attention as a result of global warming. Meat production is said to be one of the largest contributors to global warming as the production of meat requires a lot of resources, such as huge amounts of water and land-area. Especially red meat has received a reputation for being a large contributor to climate change, and it would be interesting to see if there is data to support this claim. We suspect that the meat-industry has affected the production of crops, which we assume has lower greenhouse emissions compared to meat. In this project we want to understand and study how production of crops and livestock have changed globally since the 1960s, as well as looking at the consequences of this. Datasets from fao.org, the Food and Agricultural Organization of the United Nations, will be used.
 
