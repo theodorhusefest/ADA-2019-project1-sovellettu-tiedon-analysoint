@@ -13,7 +13,9 @@ from bokeh.io import curdoc
 
 
 
-def plot_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_png = False):
+def plot_compare_areas(df, y, x = 'Year', y_label = 'Value', 
+                       title = 'NoTitle', figsize = (12,7), 
+                       save_png = False, subplot = False, ax = None):
     """
     Plots one line per Area in df. 
     X-axis default Years, while y-axis has to be passed
@@ -25,16 +27,17 @@ def plot_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_png = False):
         title: chosen title on plot.
         save_png: saves a png of plot in plots, and filename is title
     """
-    
-    fig, ax = plt.subplots(figsize = (16,8))
+    if not subplot:
+        fig, ax = plt.subplots(figsize = figsize)
+        
     df_grouped = df.groupby(['Area'])
-    
+
     for area, group in df_grouped:
         sns.lineplot(group[x], group[y], label=area, palette=('BuGn_r'))
-    plt.legend()
-    plt.title(title)
-    plt.xlabel(x)
-    plt.ylabel(y)
+    ax.legend()
+    ax.set_title(title, fontsize = 14)
+    ax.set_xlabel(x, fontsize = 14)
+    ax.set_ylabel(y_label, fontsize = 14)
     
     if save_png:
         plt.savefig('./plots/{}.png'.format(title))
