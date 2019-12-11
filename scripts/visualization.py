@@ -14,7 +14,7 @@ from bokeh.io import curdoc
 
 
 def plot_compare_areas(df, y, x = 'Year', y_label = 'Value', 
-                       title = 'NoTitle', figsize = (12,7), 
+                       title = 'NoTitle', grouping = 'Area', figsize = (12,7), 
                        save_png = False, subplot = False, ax = None):
     """
     Plots one line per Area in df. 
@@ -30,7 +30,7 @@ def plot_compare_areas(df, y, x = 'Year', y_label = 'Value',
     if not subplot:
         fig, ax = plt.subplots(figsize = figsize)
         
-    df_grouped = df.groupby(['Area'])
+    df_grouped = df.groupby([grouping])
 
     for area, group in df_grouped:
         sns.lineplot(group[x], group[y], label=area, palette=('BuGn_r'))
@@ -42,7 +42,7 @@ def plot_compare_areas(df, y, x = 'Year', y_label = 'Value',
     if save_png:
         plt.savefig('./plots/{}.png'.format(title))
 
-        
+
         
 
 def bokeh_compare_areas(df, y, x = 'Year', title = 'NoTitle', save_html = False):
