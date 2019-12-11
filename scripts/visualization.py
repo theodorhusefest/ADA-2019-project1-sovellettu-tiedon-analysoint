@@ -131,3 +131,89 @@ def map_compare_areas(df, year, value, save_html = True, legend = 'NoLegend', fi
         m.save('./website/layouts/partials/{}.html'.format(legend))
         
     return m
+
+
+def plot_yearly(yearly_item, item, yearly_population, by = 'Area'):
+    warnings.filterwarnings('ignore')
+    fig, axs = plt.subplots(2, 2)
+    
+    yearly_population.sort_values(by = 'Year', inplace = True)
+    groups = yearly_item[by].unique()
+    world_year_population = yearly_population.groupby('Year').agg({'Value':'sum'}).reset_index()
+    
+    mycolors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:pink']  
+    fig.set_size_inches(15,12)
+
+    plot_y = []
+    for group in groups:
+        y = yearly_item[yearly_item[by] == group].Value.values
+        x = yearly_item[yearly_item[by] == group].Year.values
+        
+        axs[0,0].plot(x, y)
+        
+        if by == 'Area':
+            y_n = yearly_item[yearly_item[by] == group].Value.values/(yearly_population[yearly_population[by] == group].Value.values*1000)
+            axs[1,0].plot(x, y_n)
+
+        plot_y.append(yearly_item[yearly_item[by] == cont].Value.values.tolist())
+
+    axs[0,0].legend(groups)
+    axs[0,0].set_title(item + ' production per continent')
+    axs[0,0].set_xlabel('Year')
+    axs[0,0].set_ylabel('Tonnes')
+    axs[0,0].yaxis.set_major_formatter(mtick.StrMethodFormatter('{x:,.0}')) 
+
+    axs[0,1].stackplot(x, np.vstack(plot_y), labels = groups, alpha=0.8)
+    axs[0,1].legend(loc='upper left')
+    axs[0,1].set_title('Total world '+ item +' production')
+    axs[0,1].set_xlabel('Year')
+    axs[0,1].set_ylabel('Tonnes')
+    axs[0,1].yaxis.set_major_formatter(mtick.StrMethodFormatter('{x:,.0}'))
+    
+    if by == 'Area':
+        
+        axs[1,0].set_title(item + ' production per continent, normalized on continent population')
+        axs[1,0].set_xlabel('Year')
+        axs[1,0].set_ylabel('Tonnes')
+
+        total_year_item = yearly_item.groupby('Year').agg({'Value':'sum'}).reset_index()
+
+        axs[1,1].plot(total_year_item['Year'].values,
+                total_year_item['Value'].values/(world_year_population['Value'].values*1000))
+        axs[1,1].legend(['Total all continents'])
+        axs[1,1].set_title('Total, normalized on population')
+        axs[1,1].set_xlabel('Year')
+        axs[1,1].set_ylabel('Tonnes')
+
+
+def plot_crop_livestock(df1, df2, y, x = 'Year', y_label = 'Value', 
+                       title1 = 'NoTitle', title2 = 'NoTitle2', figsize = (12,7), 
+                       save_png = False, subplot = False, ax = None):
+    """
+    Plots one line per Area in df. 
+    X-axis default Years, while y-axis has to be passed
+    
+    params:
+        df: pandas dataframe with data
+        y: value to be plotted on y-axis. Must be a column in df
+        x: value on x-axis. Default years
+        title: chosen title on plot.
+        save_png: saves a png of plot in plots, and filename is title
+    """
+    fig, (ax1, ax2) = plt.subplots(1, 2)
+    fig.set_size_inches(15,7)
+    fig.subplots_adjust(wspace = 0.5)
+        
+    ax1.plot(df1[x], df1[y])
+    ax2.plot(df2[x], df2[y])
+    
+    ax1.set_title(title1, fontsize = 14)
+    ax1.set_xlabel(x, fontsize = 14)
+    ax1.set_ylabel(y_label, fontsize = 14)
+    
+    ax2.set_title(title2, fontsize = 14)
+    ax2.set_xlabel(x, fontsize = 14)
+    ax2.set_ylabel(y_label, fontsize = 14)
+    
+    if save_png:
+        plt.savefig('./plots/{}.png'.format(title))
