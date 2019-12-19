@@ -217,3 +217,16 @@ def plot_crop_livestock(df1, df2, y, x = 'Year', y_label = 'Value',
     
     if save_png:
         plt.savefig('./plots/{}.png'.format(title))
+        
+        
+def autolabel_q4(rects, pop_growth, left = False):
+    for idx, rect in enumerate(rects):
+        height = rect.get_height()
+        if left:
+            plt.text(rect.get_x() - rect.get_width()/2, height/2 - 0.01,
+                    '{}'.format(round(pop_growth[idx], 1)),
+                    ha='center', va='bottom', rotation=0)
+        else:
+            plt.text(rect.get_x() + rect.get_width()/2 + 0.37, height/2 - 0.01,
+                    '{}'.format(round(pop_growth[idx], 1)),
+                    ha='center', rotation=0)
