@@ -230,10 +230,10 @@ def bar_plot(df1, df2, title, center=0):
     margin = 0.025
     meat_gain = 1
     
-    p1 = plt.bar(df1.index, df1['Meat']*meat_gain, width, color= 'b')
-    p2 = plt.bar(df1.index, df1['Crops'], width, bottom = df1['Meat']*meat_gain, color = '#eba134')
-    p3 = plt.bar(df2.index + width + margin, df2['Meat']*meat_gain, width, color= 'b')
-    p4 = plt.bar(df2.index + width + margin, df2['Crops'], width, bottom = df2['Meat']*meat_gain,  color = '#eba134')
+    p1 = plt.bar(df1.index, df1['Norm Meat']*meat_gain, width, color= 'b')
+    p2 = plt.bar(df1.index, df1['Norm Crops'], width, bottom = df1['Norm Meat']*meat_gain, color = '#eba134')
+    p3 = plt.bar(df2.index + width + margin, df2['Norm Meat']*meat_gain, width, color= 'b')
+    p4 = plt.bar(df2.index + width + margin, df2['Norm Crops'], width, bottom = df2['Norm Meat']*meat_gain,  color = '#eba134')
     
     ticks = ['1961 2007 \n Africa', '1961 2007 \n Asia', 
              '1961 2007 \n Europe', '1961 2007 \n North America', 
@@ -260,42 +260,42 @@ def bar_plot_with_population(df, title):
     Produces a bar plot with growth in population.
     """
     
-    def autolabel(rects, pop_growth):
+    def autolabel(rects, pop_growth, left = False):
         for idx, rect in enumerate(rects):
             height = rect.get_height()
-            if height >= 0:
-                plt.text(rect.get_x() + rect.get_width()/2., 1 + height + 0.05,
+            if left:
+                plt.text(rect.get_x() - rect.get_width()/2, height/2 - 0.01,
                         '{}%'.format(int(pop_growth[idx])),
                         ha='center', va='bottom', rotation=0)
             else:
-                plt.text(rect.get_x() + rect.get_width()/2., 1 +height - 0.20,
+                plt.text(rect.get_x() + rect.get_width()/2 + 0.27, height/2 - 0.01,
                         '{}%'.format(int(pop_growth[idx])),
-                        ha='center', va='bottom', rotation=0)
+                        ha='center', rotation=0)
 
-
-
-    fig = plt.figure(figsize = (15, 5))
-    width = 0.2
+    fig = plt.figure(figsize = (10, 5))
+    width = 0.25
     margin = 0.025
-    meat_gain = 2
-    pop_gain = 10
+    meat_gain = 1
+    pop_gain = 1
     
-    p1 = plt.bar(df.index, df['Meat']* meat_gain,width, color= 'b')
-    p2 = plt.bar(df.index, df['Crops'], width, bottom = df['Meat']* meat_gain, color = '#eba134')
-    p5 = plt.bar(df.index + width + margin , df['Population']* pop_gain, width, bottom= 0 , color= 'g')
+    p1 = plt.bar(df.index, df['Total Production'],width, color= 'r')
+    p2 = plt.bar(df.index + width + margin , df['Population'], width, bottom= 0 , color= 'g')
     
-    pop_growth = df['Population']*100
-    autolabel(p5, pop_growth)
+    autolabel(p1, df['Total Production']*100, left= True)
+    autolabel(p2, df['Population']*100)
     
-    ticks = ['1961 2007 \n Africa', '1961 2007 \n Asia', 
-             '1961 2007 \n Europe', '1961 2007 \n North America', 
-             '1961 2007 \n Oceania', '1961 2007 \n South America']
+    ticks = ['Africa', 'Asia', 
+             'Europe', 'North America', 
+             'Oceania', 'South America']
     plt.xticks(df.index + width/2, ticks, fontsize = 14)
     
-    plt.ylabel('Production per person [tonnes]', fontsize = 14)
     xmin, xmax, ymin, ymax = plt.axis()
-    plt.ylim([ymin - 0.25, ymax])
+    plt.ylim([ymin-0.02,ymax])
     
-    plt.legend((p1[0], p2[0], p5[0]), ('Meat', 'Crops', 'Population Growth since 1961'), fontsize = 14)
+    step_size = 0.1
+    plt.yticks(np.arange(ymin, ymax, step_size), 
+               ['{}%'.format(int(i)) for i in np.arange(ymin*100, ymax*100, step_size*100)])
+
+    plt.legend((p1[0], p2[0]), ('Total Production Growth', 'Population Growth'), fontsize = 14)
     plt.title(title, fontsize = 16)
     plt.show()

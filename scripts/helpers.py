@@ -68,18 +68,17 @@ def center_around_average(df, columns):
     return df1, df.mean()
 
 
-    
-def growth_of_columns(df1, df2, columns):
+def percentage_growth(df1, df2, columns):
     """
-    Gives difference between two dataframes in percent
+    Calulates how much of each row contribues to total growth
     """
-    df = df1.copy(deep=True)
-    
+    df = df1.copy(deep= True)
     for col in columns:
-        df[col] = (df1[col].values/df2[col].values)
-    
-    return df
+        diff = df1[col]-df2[col]
+        df[col] = diff/diff.sum()
 
+    return df
+    
 
 
 def explain_df(df):
@@ -107,11 +106,11 @@ def merge_crops_and_meats(meat, crops):
     
     # Remove all useless columns
     food_cont = food_cont.drop(['Element Code_x', 'Element_x', 'Item Code',
-                    'Flag_x', 'Flag_y' ,'Element Code_y', 'Unit_y', 'Element_y', 'Population_y',
-                    'Value_x', 'Value_y'], axis = 1, errors = 'ignore')
+                    'Flag_x', 'Flag_y' ,'Element Code_y', 
+                    'Unit_y', 'Element_y', 'Population_y'], axis = 1, errors = 'ignore')
     
-    new_names = {'Unit_x': 'Unit', 'Norm Value_x': 'Meat', 
-                 'Norm Value_y': 'Crops', 'Item_y': 'Crops Item', 
+    new_names = {'Unit_x': 'Unit', 'Value_x': 'Meat', 
+                 'Value_y': 'Crops', 'Norm Value_x': 'Norm Meat', 'Norm Value_y': 'Norm Crops', 'Item_y': 'Crops Item', 
                  'Item_x': 'Meat Item', 'Population_x': 'Population'}
 
     food_cont = food_cont.rename(columns = new_names)
@@ -119,7 +118,8 @@ def merge_crops_and_meats(meat, crops):
     food_total = food_cont[(food_cont['Meat Item'] == 'Meat, Total') & (food_cont['Crops Item'] == 'Crops, Total')]
 
     # Add extra column
-    food_total['Total Production'] = food_total['Meat'] +  food_total['Crops']
+    food_total['Total Production'] = (food_total['Meat'] +  food_total['Crops'])
+    food_total['Norm Total Production'] = (food_total['Meat'] +  food_total['Crops'])/(food_total['Population']*1000)
     
     return food_total
 
