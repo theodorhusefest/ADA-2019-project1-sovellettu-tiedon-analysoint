@@ -1,7 +1,6 @@
 # Filetypes to ignore
 **/*.icloud
 **/.DS_Store
-**/*.csv
 
 # Folders to ignore
 **/.ipynb_checkpoints
