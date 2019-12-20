@@ -112,9 +112,9 @@ This question is about the consequences of what we have studied in the previous 
 ### Summary of goals
 ***
 The goal of this project is to give the reader an understanding of the trends in agriculture development, both worldwide and on continent level. Furthermore, we will examine how our food habit has developed and affected the world-wide CO2 emissions.
-
-Contributions of group members:
-Vera: Proof reading, answering Q1, coming up with research questions, data cleaning;
-Emil: Proof reading, preparing final presentation, answering Q2;
-Agaton: Improving code, data exploring, answering Q4, data cleaning;
-Theodor: Creating plotting functions, answering Q3, data cleaning, git master;
+***
+### Contributions of group members:
+- Vera: Proof reading, answering Q1, coming up with research questions, data cleaning;
+- Emil: Proof reading, preparing final presentation, answering Q2;
+- Agaton: Improving code, data exploring, answering Q4, data cleaning;
+- Theodor: Creating plotting functions, answering Q3, data cleaning, git master;
