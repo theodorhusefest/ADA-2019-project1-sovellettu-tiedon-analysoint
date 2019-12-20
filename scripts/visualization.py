@@ -225,15 +225,15 @@ def bar_plot(df1, df2, title, center=0):
     Produces a bar plot for based on df made in question 3.
     """
     
-    plt.figure(figsize = (10, 5))
+    plt.figure(figsize = (10, 6))
     width = 0.3
     margin = 0.025
     meat_gain = 1
     
-    p1 = plt.bar(df1.index, df1['Norm Meat']*meat_gain, width, color= 'b')
-    p2 = plt.bar(df1.index, df1['Norm Crops'], width, bottom = df1['Norm Meat']*meat_gain, color = '#eba134')
-    p3 = plt.bar(df2.index + width + margin, df2['Norm Meat']*meat_gain, width, color= 'b')
-    p4 = plt.bar(df2.index + width + margin, df2['Norm Crops'], width, bottom = df2['Norm Meat']*meat_gain,  color = '#eba134')
+    p1 = plt.bar(df1.index, df1['Norm Meat']*meat_gain, width, color= 'b', zorder = 3)
+    p2 = plt.bar(df1.index, df1['Norm Crops'], width, bottom = df1['Norm Meat']*meat_gain, color = '#eba134', zorder = 2)
+    p3 = plt.bar(df2.index + width + margin, df2['Norm Meat']*meat_gain, width, color= 'b', zorder = 3)
+    p4 = plt.bar(df2.index + width + margin, df2['Norm Crops'], width, bottom = df2['Norm Meat']*meat_gain,  color = '#eba134', zorder = 2)
     
     ticks = ['1961 2007 \n Africa', '1961 2007 \n Asia', 
              '1961 2007 \n Europe', '1961 2007 \n North America', 
@@ -241,18 +241,20 @@ def bar_plot(df1, df2, title, center=0):
     
     margin_y = 0.5
     step_size = 0.5
+    
     xmin, xmax, ymin, ymax = plt.axis()
+    ymin = -1
+    plt.ylim([ymin, ymax])
 
-    plt.xticks(df1.index + width/2, ticks, fontsize = 14)    
+    plt.xticks(df1.index + width/2, ticks, fontsize = 16)    
     plt.yticks(np.arange(ymin - margin_y, ymax + margin_y, step_size), 
                np.arange(np.around(center + ymin - margin_y, decimals = 1),
-                         np.around(center + ymax + margin_y, decimals = 1), step_size))
+                         np.around(center + ymax + margin_y, decimals = 1), step_size), fontsize = 14)
 
     
-    plt.ylabel('Production per person [tonnes]', fontsize = 14)
-    plt.legend((p1[0], p2[0]), ('Meat Production', 'Crops Production'), fontsize = 14)
-    plt.title(title, fontsize = 16)
-    plt.show()
+    plt.ylabel('Production per person [tonnes]', fontsize = 16)
+    plt.legend((p1[0], p2[0]), ('Meat Production', 'Crops Production'), fontsize = 16)
+    plt.title(title, fontsize = 20)
     
     
 def bar_plot_with_population(df, title):
@@ -298,4 +300,4 @@ def bar_plot_with_population(df, title):
 
     plt.legend((p1[0], p2[0]), ('Total Production Growth', 'Population Growth'), fontsize = 14)
     plt.title(title, fontsize = 16)
-    plt.show()
+    
