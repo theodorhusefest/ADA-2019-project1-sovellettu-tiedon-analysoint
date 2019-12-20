@@ -35,11 +35,6 @@ def split_fao_data(df):
 def normalize_on_population(df1, population):
     """
     Adds an extra column to dataframe 'Norm Value' which is value of df1 divided by population in that area
-    
-    params:
-        df1: dataframe with at least columns Area and Year 
-        population: dataframe with population data
-    
     """
     
     # Join meat and population dataframes
@@ -122,15 +117,3 @@ def merge_crops_and_meats(meat, crops):
     food_total['Norm Total Production'] = (food_total['Meat'] +  food_total['Crops'])/(food_total['Population']*1000)
     
     return food_total
-
-
-def create_crops_total(crops):
-    """
-    For each year, and each area combine all values into one category 'Crops, Total'
-    """
-    
-    temp = crops.groupby(['Area', 'Year', 'Element', 
-                          'Element Code', 'Unit', 'Flag'], as_index = False).sum().assign(Item = 'Crops, Total')
-    
-    df = pd.concat([crops, temp]).sort_values(['Area', 'Year']).reset_index(drop=True)
-    return df
