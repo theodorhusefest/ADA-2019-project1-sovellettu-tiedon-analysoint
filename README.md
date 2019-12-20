@@ -1,6 +1,6 @@
 # Applied Data Analysis - Project
 
-(Projects notebook for milestone 2: project_notebook.ipynb)
+(Projects notebook for milestone 3: project_notebook.ipynb)
 
 ### Abstract
 In recent years, meat consumption has received a lot of attention as a result of global warming. Meat production is said to be one of the largest contributors to global warming as the production of meat requires a lot of resources, such as huge amounts of water and land-area. Especially red meat has received a reputation for being a large contributor to climate change, and it would be interesting to see if there is data to support this claim. We suspect that the meat-industry has affected the production of crops, which we assume has lower greenhouse emissions compared to meat. In this project we want to understand and study how production of crops and livestock have changed globally since the 1960s, as well as looking at the consequences of this. Datasets from fao.org, the Food and Agricultural Organization of the United Nations, will be used.
@@ -112,9 +112,9 @@ This question is about the consequences of what we have studied in the previous 
 ### Summary of goals
 ***
 The goal of this project is to give the reader an understanding of the trends in agriculture development, both worldwide and on continent level. Furthermore, we will examine how our food habit has developed and affected the world-wide CO2 emissions.
-
-Contributions of group members:
-Vera: Proof reading, answering Q1, coming up with research questions, data cleaning;
-Emil: Proof reading, preparing final presentation, answering Q2;
-Agaton: Improving code, data exploring, answering Q4, data cleaning;
-Theodor: Creating plotting functions, answering Q3, data cleaning, git master;
+***
+### Contributions of group members:
+- Vera: Proof reading, answering Q1, coming up with research questions, data cleaning;
+- Emil: Proof reading, preparing final presentation, answering Q2;
+- Agaton: Improving code, data exploring, answering Q4, data cleaning;
+- Theodor: Creating plotting functions, answering Q3, data cleaning, git master;
